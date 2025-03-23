@@ -10,8 +10,11 @@ Route::get('/', function () {
 Route::get('/jobs', function () {
     //Job::all(); -> lazy loading, but we prevent this on the AppServiceProvider
     //Job::with('employer')->get(); -> eager loading
-    
-    $jobs = Job::with('employer')->get();
+
+    // $jobs = Job::with('employer')->paginate(5);
+    // $jobs = Job::with('employer')->simplePaginate(5);
+    $jobs = Job::with('employer')->cursorPaginate(5);
+
     return view('jobs', ['jobs' => $jobs]);
 });
 
