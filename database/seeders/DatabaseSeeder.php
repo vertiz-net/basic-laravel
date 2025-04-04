@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             'first_name' => 'Carlos',
             'last_name' => 'Vertiz',
             'email' => 'carlos@vertiz.net',
+            'password' => bcrypt('carlos123'),
         ]);
 
         $this->call(JobSeeder::class);
